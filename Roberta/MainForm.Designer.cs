@@ -62,6 +62,7 @@ namespace Roberta
             this.firearmSerialNumberTextBox = new System.Windows.Forms.TextBox();
             this.firearmSaveButton = new System.Windows.Forms.Button();
             this.firearmCancelButton = new System.Windows.Forms.Button();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.firearmsTabPage.SuspendLayout();
@@ -91,6 +92,7 @@ namespace Roberta
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -362,6 +364,13 @@ namespace Roberta
             this.firearmCancelButton.Text = "Cancel";
             this.firearmCancelButton.UseVisualStyleBackColor = true;
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,6 +432,7 @@ namespace Roberta
         private System.Windows.Forms.Label firearmCaliberLabel;
         private System.Windows.Forms.Label firearmManufacturerLabel;
         private System.Windows.Forms.Label firearmModelLabel;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

@@ -2,7 +2,8 @@
 
 namespace Roberta.Model
 {
-    class Ammunition
+    [Serializable]
+    public class Ammunition
     {
         public Guid Id { get; set; }
 
@@ -14,7 +15,7 @@ namespace Roberta.Model
 
         public float ProjectileWeight { get; set; }
 
-        public string BulletSlugType { get; set; }
+        public string BulletSlugName { get; set; }
 
         public string BirdshotSize { get; set; }
 

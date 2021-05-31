@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Roberta.Model
 {
-    class Firearm
+    [Serializable]
+    public class Firearm
     {
         public Guid Id { get; set; }
         public string Model { get; set; }
         public string Manufacturer { get; set; }
         public string Caliber { get; set; }
         public string SerialNumber { get; set; }
+        public DateTime PurchaseDate { get; set; }
+
     }
 }

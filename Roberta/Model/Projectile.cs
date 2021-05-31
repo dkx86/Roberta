@@ -1,6 +1,6 @@
 ﻿namespace Roberta.Model
 {
-    enum Projectile : byte
+    public enum Projectile : byte
     {
         Bullet,
         Birdshot,
