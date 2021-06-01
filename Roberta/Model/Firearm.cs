@@ -14,7 +14,20 @@ namespace Roberta.Model
         public string Manufacturer { get; set; }
         public string Caliber { get; set; }
         public string SerialNumber { get; set; }
-        public DateTime PurchaseDate { get; set; }
+
+        public override string ToString()
+        {
+            string result = "New firearm";
+            if (string.IsNullOrEmpty(Model))
+                return result;
+
+            result = Model;
+            
+            if (!string.IsNullOrEmpty(SerialNumber))
+                result += " (" + SerialNumber + ")";
+
+            return result;
+        }
 
     }
 }
