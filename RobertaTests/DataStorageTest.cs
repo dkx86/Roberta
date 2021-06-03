@@ -26,7 +26,6 @@ namespace RobertaTests
                     Model = "MP-155",
                     Caliber = "12/76",
                     SerialNumber = "1234567",
-                    PurchaseDate = System.DateTime.Today
                 },
 
                 new Firearm
@@ -36,7 +35,6 @@ namespace RobertaTests
                     Model = "MP-135",
                     Caliber = "12/70",
                     SerialNumber = "0987654",
-                    PurchaseDate = System.DateTime.Now
                 }
             };
 
@@ -55,7 +53,6 @@ namespace RobertaTests
             Assert.AreEqual(firearm.Model, loadedFirearm.Model);
             Assert.AreEqual(firearm.Caliber, loadedFirearm.Caliber);
             Assert.AreEqual(firearm.SerialNumber, loadedFirearm.SerialNumber);
-            Assert.AreEqual(firearm.PurchaseDate, loadedFirearm.PurchaseDate);
         }
 
         [Test]
@@ -123,8 +120,7 @@ namespace RobertaTests
                 Manufacturer = "Baikal",
                 Model = "MP-135",
                 Caliber = "12/70",
-                SerialNumber = "0987654",
-                PurchaseDate = System.DateTime.Now
+                SerialNumber = "0987654"
             };
 
 

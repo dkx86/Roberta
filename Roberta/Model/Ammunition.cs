@@ -20,5 +20,22 @@ namespace Roberta.Model
         public string BirdshotSize { get; set; }
 
         public string BuckshotSize { get; set; }
+
+        public override string ToString()
+        {
+            string result = "New ammo";
+            if (string.IsNullOrEmpty(Caliber))
+                return result;
+
+            result = Caliber;
+
+            if (!string.IsNullOrEmpty(Manufacturer))
+                result += ", " + Manufacturer;
+
+            if (ProjectileWeight > 0f)
+                result += ", " + ProjectileWeight;
+
+            return result;
+        }
     }
 }
