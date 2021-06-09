@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStorage.cs" />
+    <Compile Include="EditRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRecordForm.Designer.cs">
+      <DependentUpon>EditRecordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,7 +75,11 @@
       <DependentUpon>RemoveDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\AmmunitionRepo.cs" />
+    <Compile Include="Repository\RecordsRepo.cs" />
     <Compile Include="Repository\FirearmsRepo.cs" />
+    <EmbeddedResource Include="EditRecordForm.resx">
+      <DependentUpon>EditRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

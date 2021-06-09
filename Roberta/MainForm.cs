@@ -10,6 +10,8 @@ namespace Roberta
     {
         private readonly FirearmsRepo _firearmsRepo;
         private readonly AmmunitionRepo _ammunitionRepo;
+        private readonly RecordsRepo _recordsRepo;
+
         private int lastSelectedFirearmIndex;
         private int lastSelectedAmmoIndex;
 
@@ -17,17 +19,25 @@ namespace Roberta
         {
             _firearmsRepo = new FirearmsRepo();
             _ammunitionRepo = new AmmunitionRepo();
+            _recordsRepo = new RecordsRepo();
 
-            InitializeComponent();
             // init data repos
             _firearmsRepo.Initialize();
+            _ammunitionRepo.Initialize();
+            _recordsRepo.Initialize();
 
+            InitializeComponent();
+            
             LoadFirearms();
             FirearmsSwitchEditMode(false);
 
             LoadAmmunition();
             AmmoSwitchEditMode(false);
+
+            LoadLogRecords(false);
         }
+
+     
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,6 +57,7 @@ namespace Roberta
             firearms.ForEach(f => firearmsListBox.Items.Add(f));
             if(firearmsListBox.Items.Count > 0)
                 firearmsListBox.SetSelected(lastSelectedFirearmIndex, true);
+
         }
 
         private void LoadAmmunition()
@@ -374,6 +385,38 @@ namespace Roberta
             lastSelectedAmmoIndex = ammoListBox.SelectedIndex;
             var ammo = (Ammunition)ammoListBox.SelectedItem;
             FillAmmoCard(ammo);
+        }
+
+        // LOG records
+
+        private void addRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditRecordForm dialog = new EditRecordForm(null);
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadLogRecords(true);
+            }
+
+            dialog.Dispose();
+        }
+
+        private void editRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadLogRecords(bool reinit)
+        {
+            if (reinit)
+                _recordsRepo.ReloadFromDisk();
+
+            logDataGridView.DataSource = _recordsRepo.GetAll();
+            logDataGridView.Refresh();
         }
     }
 }
