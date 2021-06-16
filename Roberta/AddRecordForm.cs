@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 namespace Roberta
 {
-    public partial class EditRecordForm : Form
+    public partial class AddRecordForm : Form
     {
         private readonly FirearmsRepo _firearmsRepo;
         private readonly AmmunitionRepo _ammunitionRepo;
         private readonly RecordsRepo _recordsRepo;
 
-        public EditRecordForm(Guid? recordGuid)
+        public AddRecordForm(Guid? recordGuid)
         {
             InitializeComponent();
             saveButton.DialogResult = DialogResult.OK;

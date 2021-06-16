@@ -71,6 +71,7 @@ namespace Roberta
             this.Controls.Add(this.dialogYesButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RemoveDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Roberta";
             this.ResumeLayout(false);
             this.PerformLayout();

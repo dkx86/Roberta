@@ -27,7 +27,7 @@ namespace Roberta
             _recordsRepo.Initialize();
 
             InitializeComponent();
-            
+
             LoadFirearms();
             FirearmsSwitchEditMode(false);
 
@@ -37,7 +37,7 @@ namespace Roberta
             LoadLogRecords(false);
         }
 
-     
+
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Roberta
             var firearms = _firearmsRepo.GetAllFirearms();
             firearmsListBox.Items.Clear();
             firearms.ForEach(f => firearmsListBox.Items.Add(f));
-            if(firearmsListBox.Items.Count > 0)
+            if (firearmsListBox.Items.Count > 0)
                 firearmsListBox.SetSelected(lastSelectedFirearmIndex, true);
 
         }
@@ -65,7 +65,7 @@ namespace Roberta
             var ammo = _ammunitionRepo.GetAllAmmo();
             ammoListBox.Items.Clear();
             ammo.ForEach(a => ammoListBox.Items.Add(a));
-            if(ammoListBox.Items.Count > 0)
+            if (ammoListBox.Items.Count > 0)
                 ammoListBox.SetSelected(lastSelectedAmmoIndex, true);
         }
 
@@ -84,9 +84,9 @@ namespace Roberta
             ammoManufacturerTextBox.Text = ammo.Manufacturer;
             SetAmmoSelectedProjectileType(ammo.ProjectileType);
 
-            ammoWeightNumericUpDown.Value = (decimal)ammo.ProjectileWeight;
+            ammoWeightTextBox.Text = ammo.ProjectileWeight.ToString();
             ammoBirdshotSizeTextBox.Text = ammo.BirdshotSize;
-            ammoBirdshotSizeTextBox.Text = ammo.BuckshotSize;
+            ammoBuckshotSizeTextBox.Text = ammo.BuckshotSize;
             ammoBulletSlugNameTextBox.Text = ammo.BulletSlugName;
 
         }
@@ -105,9 +105,12 @@ namespace Roberta
         {
             ammoManufacturerTextBox.ReadOnly = !isOn;
             ammoCaliberTextBox.ReadOnly = !isOn;
-            ammoProjectileGroupBox.Enabled = isOn;
-            ammoWeightNumericUpDown.ReadOnly = !isOn;
-            ammoWeightNumericUpDown.Enabled = isOn;
+            ammoBulletRadioButton.Enabled = isOn;
+            ammoBirdshotRadioButton.Enabled = isOn;
+            ammoBuckshotRadioButton.Enabled = isOn;
+            ammoSlugRadioButton.Enabled = isOn;
+
+            ammoWeightTextBox.ReadOnly = !isOn;
             ammoBirdshotSizeTextBox.ReadOnly = !isOn;
             ammoBuckshotSizeTextBox.ReadOnly = !isOn;
             ammoBulletSlugNameTextBox.ReadOnly = !isOn;
@@ -194,7 +197,6 @@ namespace Roberta
             var index = tabControl.SelectedIndex;
 
             // Disable all
-            editRecordToolStripMenuItem.Enabled = false;
             removeRecordToolStripMenuItem.Enabled = false;
 
             editFirearmToolStripMenuItem.Enabled = false;
@@ -206,9 +208,7 @@ namespace Roberta
             switch (index)
             {
                 case 0: // LOG
-                    editRecordToolStripMenuItem.Enabled = true;
                     removeRecordToolStripMenuItem.Enabled = true;
-
                     break;
                 case 1: //Firearms
                     editFirearmToolStripMenuItem.Enabled = true;
@@ -261,9 +261,9 @@ namespace Roberta
             ammo.Manufacturer = ammoManufacturerTextBox.Text;
             ammo.Caliber = ammoCaliberTextBox.Text;
             ammo.ProjectileType = GetAmmoSelectedProjectileType();
-            ammo.ProjectileWeight = (float)ammoWeightNumericUpDown.Value;
+            ammo.ProjectileWeight = float.Parse(ammoWeightTextBox.Text);
             ammo.BirdshotSize = ammoBirdshotSizeTextBox.Text;
-            ammo.BuckshotSize = ammoBirdshotSizeTextBox.Text;
+            ammo.BuckshotSize = ammoBuckshotSizeTextBox.Text;
             ammo.BulletSlugName = ammoBulletSlugNameTextBox.Text;
 
             _ammunitionRepo.UpdateOrAdd(ammo);
@@ -288,23 +288,31 @@ namespace Roberta
 
         private void SetAmmoSelectedProjectileType(Projectile projectile)
         {
+            ammoBulletRadioButton.Enabled = false;
+            ammoBirdshotRadioButton.Enabled = false;
+            ammoBuckshotRadioButton.Enabled = false;
+            ammoSlugRadioButton.Enabled = false;
 
             switch (projectile)
             {
                 case Projectile.Bullet:
                     ammoBulletRadioButton.Checked = true;
+                    ammoBulletRadioButton.Enabled = true;
                     break;
 
                 case Projectile.Birdshot:
                     ammoBirdshotRadioButton.Checked = true;
+                    ammoBirdshotRadioButton.Enabled = true;
                     break;
 
                 case Projectile.Buckshot:
                     ammoBuckshotRadioButton.Checked = true;
+                    ammoBuckshotRadioButton.Enabled = true;
                     break;
 
                 case Projectile.Slug:
                     ammoSlugRadioButton.Checked = true;
+                    ammoSlugRadioButton.Enabled = true;
                     break;
             }
 
@@ -318,66 +326,67 @@ namespace Roberta
 
         private void ammoBulletRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ammoProjectileWeightLabel.Visible = true;
-            ammoWeightNumericUpDown.Visible = true;
-            ammoWeightGrammLabel.Visible = true;
+            ammoProjectileWeightLabel.Enabled = true;
+            ammoWeightTextBox.Enabled = true;
 
-            ammoBirdshotSizeLabel.Visible = false;
-            ammoBirdshotSizeTextBox.Visible = false;
+            ammoWeightGrammLabel.Enabled = true;
 
-            ammoBuckshotSizeLabel.Visible = false;
-            ammoBuckshotSizeTextBox.Visible = false;
+            ammoBirdshotSizeLabel.Enabled = false;
+            ammoBirdshotSizeTextBox.Enabled = false;
 
-            ammoBulletSlugNameLabel.Visible = true;
-            ammoBulletSlugNameTextBox.Visible = true;
+            ammoBuckshotSizeLabel.Enabled = false;
+            ammoBuckshotSizeTextBox.Enabled = false;
+
+            ammoBulletSlugNameLabel.Enabled = true;
+            ammoBulletSlugNameTextBox.Enabled = true;
         }
 
         private void ammoBirdshotRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ammoProjectileWeightLabel.Visible = true;
-            ammoWeightNumericUpDown.Visible = true;
-            ammoWeightGrammLabel.Visible = true;
+            ammoProjectileWeightLabel.Enabled = true;
+            ammoWeightTextBox.Enabled = true;
+            ammoWeightGrammLabel.Enabled = true;
 
-            ammoBirdshotSizeLabel.Visible = true;
-            ammoBirdshotSizeTextBox.Visible = true;
+            ammoBirdshotSizeLabel.Enabled = true;
+            ammoBirdshotSizeTextBox.Enabled = true;
 
-            ammoBuckshotSizeLabel.Visible = false;
-            ammoBuckshotSizeTextBox.Visible = false;
+            ammoBuckshotSizeLabel.Enabled = false;
+            ammoBuckshotSizeTextBox.Enabled = false;
 
-            ammoBulletSlugNameLabel.Visible = false;
-            ammoBulletSlugNameTextBox.Visible = false;
+            ammoBulletSlugNameLabel.Enabled = false;
+            ammoBulletSlugNameTextBox.Enabled = false;
         }
 
         private void ammoBuckshotRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ammoProjectileWeightLabel.Visible = true;
-            ammoWeightNumericUpDown.Visible = true;
-            ammoWeightGrammLabel.Visible = true;
+            ammoProjectileWeightLabel.Enabled = true;
+            ammoWeightTextBox.Enabled = true;
+            ammoWeightGrammLabel.Enabled = true;
 
-            ammoBirdshotSizeLabel.Visible = false;
-            ammoBirdshotSizeTextBox.Visible = false;
+            ammoBirdshotSizeLabel.Enabled = false;
+            ammoBirdshotSizeTextBox.Enabled = false;
 
-            ammoBuckshotSizeLabel.Visible = true;
-            ammoBuckshotSizeTextBox.Visible = true;
+            ammoBuckshotSizeLabel.Enabled = true;
+            ammoBuckshotSizeTextBox.Enabled = true;
 
-            ammoBulletSlugNameLabel.Visible = false;
-            ammoBulletSlugNameTextBox.Visible = false;
+            ammoBulletSlugNameLabel.Enabled = false;
+            ammoBulletSlugNameTextBox.Enabled = false;
         }
 
         private void ammoSlugRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ammoProjectileWeightLabel.Visible = true;
-            ammoWeightNumericUpDown.Visible = true;
-            ammoWeightGrammLabel.Visible = true;
+            ammoProjectileWeightLabel.Enabled = true;
+            ammoWeightTextBox.Enabled = true;
+            ammoWeightGrammLabel.Enabled = true;
 
-            ammoBirdshotSizeLabel.Visible = false;
-            ammoBirdshotSizeTextBox.Visible = false;
+            ammoBirdshotSizeLabel.Enabled = false;
+            ammoBirdshotSizeTextBox.Enabled = false;
 
-            ammoBuckshotSizeLabel.Visible = false;
-            ammoBuckshotSizeTextBox.Visible = false;
+            ammoBuckshotSizeLabel.Enabled = false;
+            ammoBuckshotSizeTextBox.Enabled = false;
 
-            ammoBulletSlugNameLabel.Visible = true;
-            ammoBulletSlugNameTextBox.Visible = true;
+            ammoBulletSlugNameLabel.Enabled = true;
+            ammoBulletSlugNameTextBox.Enabled = true;
         }
 
         private void ammoListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -391,7 +400,7 @@ namespace Roberta
 
         private void addRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditRecordForm dialog = new EditRecordForm(null);
+            AddRecordForm dialog = new AddRecordForm(null);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 LoadLogRecords(true);
@@ -400,14 +409,21 @@ namespace Roberta
             dialog.Dispose();
         }
 
-        private void editRecordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void removeRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var row = logDataGridView.SelectedRows[0];
+            var record = row.DataBoundItem as LogRecord;
 
+            RemoveDialog dialog = new RemoveDialog();
+            dialog.SetMessage("Delete LOG records at " + record.Date);
+            if (dialog.ShowDialog(this) == DialogResult.Yes)
+            {
+                _recordsRepo.Delete(record.Id);
+                _recordsRepo.Save();
+                LoadLogRecords(false);
+            }
+
+            dialog.Dispose();
         }
 
         private void LoadLogRecords(bool reinit)
@@ -416,6 +432,7 @@ namespace Roberta
                 _recordsRepo.ReloadFromDisk();
 
             logDataGridView.DataSource = _recordsRepo.GetAll();
+            logDataGridView.Columns["Id"].Visible = false;
             logDataGridView.Refresh();
         }
     }

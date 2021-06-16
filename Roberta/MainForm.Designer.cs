@@ -34,7 +34,6 @@ namespace Roberta
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firearmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createFirearmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +65,6 @@ namespace Roberta
             this.ammoSplitContainer = new System.Windows.Forms.SplitContainer();
             this.ammoListBox = new System.Windows.Forms.ListBox();
             this.ammoWeightGrammLabel = new System.Windows.Forms.Label();
-            this.ammoWeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ammoProjectileGroupBox = new System.Windows.Forms.GroupBox();
             this.ammoSlugRadioButton = new System.Windows.Forms.RadioButton();
             this.ammoBuckshotRadioButton = new System.Windows.Forms.RadioButton();
@@ -85,6 +83,7 @@ namespace Roberta
             this.ammoProjectileWeightLabel = new System.Windows.Forms.Label();
             this.ammoCaliberLabel = new System.Windows.Forms.Label();
             this.ammoManufacturerLabel = new System.Windows.Forms.Label();
+            this.ammoWeightTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.logTabPage.SuspendLayout();
@@ -99,7 +98,6 @@ namespace Roberta
             this.ammoSplitContainer.Panel1.SuspendLayout();
             this.ammoSplitContainer.Panel2.SuspendLayout();
             this.ammoSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ammoWeightNumericUpDown)).BeginInit();
             this.ammoProjectileGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +111,7 @@ namespace Roberta
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip.Size = new System.Drawing.Size(784, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -137,7 +135,6 @@ namespace Roberta
             // 
             this.lOGToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRecordToolStripMenuItem,
-            this.editRecordToolStripMenuItem,
             this.removeRecordToolStripMenuItem});
             this.lOGToolStripMenuItem.Name = "lOGToolStripMenuItem";
             this.lOGToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
@@ -149,13 +146,6 @@ namespace Roberta
             this.addRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addRecordToolStripMenuItem.Text = "Add record";
             this.addRecordToolStripMenuItem.Click += new System.EventHandler(this.addRecordToolStripMenuItem_Click);
-            // 
-            // editRecordToolStripMenuItem
-            // 
-            this.editRecordToolStripMenuItem.Name = "editRecordToolStripMenuItem";
-            this.editRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editRecordToolStripMenuItem.Text = "Edit record";
-            this.editRecordToolStripMenuItem.Click += new System.EventHandler(this.editRecordToolStripMenuItem_Click);
             // 
             // removeRecordToolStripMenuItem
             // 
@@ -216,15 +206,17 @@ namespace Roberta
             // 
             // editAmmoToolStripMenuItem
             // 
+            this.editAmmoToolStripMenuItem.Enabled = false;
             this.editAmmoToolStripMenuItem.Name = "editAmmoToolStripMenuItem";
-            this.editAmmoToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.editAmmoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editAmmoToolStripMenuItem.Text = "Edit";
             this.editAmmoToolStripMenuItem.Click += new System.EventHandler(this.editAmmoToolStripMenuItem_Click);
             // 
             // removeAmmoToolStripMenuItem
             // 
+            this.removeAmmoToolStripMenuItem.Enabled = false;
             this.removeAmmoToolStripMenuItem.Name = "removeAmmoToolStripMenuItem";
-            this.removeAmmoToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeAmmoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeAmmoToolStripMenuItem.Text = "Remove";
             this.removeAmmoToolStripMenuItem.Click += new System.EventHandler(this.removeAmmoToolStripMenuItem_Click);
             // 
@@ -251,7 +243,7 @@ namespace Roberta
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(800, 426);
+            this.tabControl.Size = new System.Drawing.Size(784, 417);
             this.tabControl.TabIndex = 1;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -261,19 +253,25 @@ namespace Roberta
             this.logTabPage.Location = new System.Drawing.Point(4, 22);
             this.logTabPage.Name = "logTabPage";
             this.logTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.logTabPage.Size = new System.Drawing.Size(792, 400);
+            this.logTabPage.Size = new System.Drawing.Size(776, 391);
             this.logTabPage.TabIndex = 0;
             this.logTabPage.Text = "LOG";
             this.logTabPage.UseVisualStyleBackColor = true;
             // 
             // logDataGridView
             // 
+            this.logDataGridView.AllowUserToAddRows = false;
+            this.logDataGridView.AllowUserToDeleteRows = false;
+            this.logDataGridView.AllowUserToResizeRows = false;
+            this.logDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.logDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.logDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.logDataGridView.MultiSelect = false;
             this.logDataGridView.Name = "logDataGridView";
             this.logDataGridView.ReadOnly = true;
-            this.logDataGridView.Size = new System.Drawing.Size(786, 394);
+            this.logDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.logDataGridView.Size = new System.Drawing.Size(770, 385);
             this.logDataGridView.TabIndex = 0;
             // 
             // firearmsTabPage
@@ -282,7 +280,7 @@ namespace Roberta
             this.firearmsTabPage.Location = new System.Drawing.Point(4, 22);
             this.firearmsTabPage.Name = "firearmsTabPage";
             this.firearmsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.firearmsTabPage.Size = new System.Drawing.Size(792, 400);
+            this.firearmsTabPage.Size = new System.Drawing.Size(776, 391);
             this.firearmsTabPage.TabIndex = 1;
             this.firearmsTabPage.Text = "Firearms";
             this.firearmsTabPage.UseVisualStyleBackColor = true;
@@ -309,8 +307,8 @@ namespace Roberta
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmCaliberLabel);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmManufacturerLabel);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmModelLabel);
-            this.firearmsSplitContainer.Size = new System.Drawing.Size(786, 394);
-            this.firearmsSplitContainer.SplitterDistance = 262;
+            this.firearmsSplitContainer.Size = new System.Drawing.Size(770, 385);
+            this.firearmsSplitContainer.SplitterDistance = 256;
             this.firearmsSplitContainer.TabIndex = 0;
             // 
             // firearmsListBox
@@ -319,7 +317,7 @@ namespace Roberta
             this.firearmsListBox.FormattingEnabled = true;
             this.firearmsListBox.Location = new System.Drawing.Point(0, 0);
             this.firearmsListBox.Name = "firearmsListBox";
-            this.firearmsListBox.Size = new System.Drawing.Size(262, 394);
+            this.firearmsListBox.Size = new System.Drawing.Size(256, 385);
             this.firearmsListBox.TabIndex = 0;
             this.firearmsListBox.SelectedIndexChanged += new System.EventHandler(this.firearmsListBox_SelectedIndexChanged);
             // 
@@ -412,7 +410,7 @@ namespace Roberta
             this.ammoTabPage.Controls.Add(this.ammoSplitContainer);
             this.ammoTabPage.Location = new System.Drawing.Point(4, 22);
             this.ammoTabPage.Name = "ammoTabPage";
-            this.ammoTabPage.Size = new System.Drawing.Size(792, 400);
+            this.ammoTabPage.Size = new System.Drawing.Size(776, 391);
             this.ammoTabPage.TabIndex = 2;
             this.ammoTabPage.Text = "Ammunition";
             this.ammoTabPage.UseVisualStyleBackColor = true;
@@ -429,8 +427,8 @@ namespace Roberta
             // 
             // ammoSplitContainer.Panel2
             // 
+            this.ammoSplitContainer.Panel2.Controls.Add(this.ammoWeightTextBox);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoWeightGrammLabel);
-            this.ammoSplitContainer.Panel2.Controls.Add(this.ammoWeightNumericUpDown);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoProjectileGroupBox);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoBulletSlugNameTextBox);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoBuckshotSizeTextBox);
@@ -445,8 +443,8 @@ namespace Roberta
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoProjectileWeightLabel);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoCaliberLabel);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoManufacturerLabel);
-            this.ammoSplitContainer.Size = new System.Drawing.Size(792, 400);
-            this.ammoSplitContainer.SplitterDistance = 264;
+            this.ammoSplitContainer.Size = new System.Drawing.Size(776, 391);
+            this.ammoSplitContainer.SplitterDistance = 258;
             this.ammoSplitContainer.TabIndex = 0;
             // 
             // ammoListBox
@@ -455,38 +453,18 @@ namespace Roberta
             this.ammoListBox.FormattingEnabled = true;
             this.ammoListBox.Location = new System.Drawing.Point(0, 0);
             this.ammoListBox.Name = "ammoListBox";
-            this.ammoListBox.Size = new System.Drawing.Size(264, 400);
+            this.ammoListBox.Size = new System.Drawing.Size(258, 391);
             this.ammoListBox.TabIndex = 0;
             this.ammoListBox.SelectedIndexChanged += new System.EventHandler(this.ammoListBox_SelectedIndexChanged);
             // 
             // ammoWeightGrammLabel
             // 
             this.ammoWeightGrammLabel.AutoSize = true;
-            this.ammoWeightGrammLabel.Location = new System.Drawing.Point(306, 145);
+            this.ammoWeightGrammLabel.Location = new System.Drawing.Point(257, 145);
             this.ammoWeightGrammLabel.Name = "ammoWeightGrammLabel";
             this.ammoWeightGrammLabel.Size = new System.Drawing.Size(13, 13);
             this.ammoWeightGrammLabel.TabIndex = 16;
             this.ammoWeightGrammLabel.Text = "g";
-            this.ammoWeightGrammLabel.Visible = false;
-            // 
-            // ammoWeightNumericUpDown
-            // 
-            this.ammoWeightNumericUpDown.DecimalPlaces = 1;
-            this.ammoWeightNumericUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.ammoWeightNumericUpDown.Location = new System.Drawing.Point(190, 144);
-            this.ammoWeightNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.ammoWeightNumericUpDown.Name = "ammoWeightNumericUpDown";
-            this.ammoWeightNumericUpDown.Size = new System.Drawing.Size(110, 20);
-            this.ammoWeightNumericUpDown.TabIndex = 15;
-            this.ammoWeightNumericUpDown.Visible = false;
             // 
             // ammoProjectileGroupBox
             // 
@@ -553,25 +531,22 @@ namespace Roberta
             // 
             this.ammoBulletSlugNameTextBox.Location = new System.Drawing.Point(190, 235);
             this.ammoBulletSlugNameTextBox.Name = "ammoBulletSlugNameTextBox";
-            this.ammoBulletSlugNameTextBox.Size = new System.Drawing.Size(129, 20);
+            this.ammoBulletSlugNameTextBox.Size = new System.Drawing.Size(113, 20);
             this.ammoBulletSlugNameTextBox.TabIndex = 13;
-            this.ammoBulletSlugNameTextBox.Visible = false;
             // 
             // ammoBuckshotSizeTextBox
             // 
             this.ammoBuckshotSizeTextBox.Location = new System.Drawing.Point(190, 205);
             this.ammoBuckshotSizeTextBox.Name = "ammoBuckshotSizeTextBox";
-            this.ammoBuckshotSizeTextBox.Size = new System.Drawing.Size(129, 20);
+            this.ammoBuckshotSizeTextBox.Size = new System.Drawing.Size(61, 20);
             this.ammoBuckshotSizeTextBox.TabIndex = 12;
-            this.ammoBuckshotSizeTextBox.Visible = false;
             // 
             // ammoBirdshotSizeTextBox
             // 
             this.ammoBirdshotSizeTextBox.Location = new System.Drawing.Point(190, 175);
             this.ammoBirdshotSizeTextBox.Name = "ammoBirdshotSizeTextBox";
-            this.ammoBirdshotSizeTextBox.Size = new System.Drawing.Size(129, 20);
+            this.ammoBirdshotSizeTextBox.Size = new System.Drawing.Size(61, 20);
             this.ammoBirdshotSizeTextBox.TabIndex = 11;
-            this.ammoBirdshotSizeTextBox.Visible = false;
             // 
             // ammoCaliberTextBox
             // 
@@ -615,7 +590,6 @@ namespace Roberta
             this.ammoBulletSlugNameLabel.Size = new System.Drawing.Size(38, 13);
             this.ammoBulletSlugNameLabel.TabIndex = 5;
             this.ammoBulletSlugNameLabel.Text = "Name:";
-            this.ammoBulletSlugNameLabel.Visible = false;
             // 
             // ammoBuckshotSizeLabel
             // 
@@ -625,7 +599,6 @@ namespace Roberta
             this.ammoBuckshotSizeLabel.Size = new System.Drawing.Size(76, 13);
             this.ammoBuckshotSizeLabel.TabIndex = 4;
             this.ammoBuckshotSizeLabel.Text = "Buckshot size:";
-            this.ammoBuckshotSizeLabel.Visible = false;
             // 
             // ammoBirdshotSizeLabel
             // 
@@ -635,7 +608,6 @@ namespace Roberta
             this.ammoBirdshotSizeLabel.Size = new System.Drawing.Size(69, 13);
             this.ammoBirdshotSizeLabel.TabIndex = 3;
             this.ammoBirdshotSizeLabel.Text = "Birdshot size:";
-            this.ammoBirdshotSizeLabel.Visible = false;
             // 
             // ammoProjectileWeightLabel
             // 
@@ -645,7 +617,6 @@ namespace Roberta
             this.ammoProjectileWeightLabel.Size = new System.Drawing.Size(44, 13);
             this.ammoProjectileWeightLabel.TabIndex = 2;
             this.ammoProjectileWeightLabel.Text = "Weight:";
-            this.ammoProjectileWeightLabel.Visible = false;
             // 
             // ammoCaliberLabel
             // 
@@ -665,14 +636,24 @@ namespace Roberta
             this.ammoManufacturerLabel.TabIndex = 0;
             this.ammoManufacturerLabel.Text = "Manufacturer:";
             // 
+            // ammoWeightTextBox
+            // 
+            this.ammoWeightTextBox.Location = new System.Drawing.Point(190, 145);
+            this.ammoWeightTextBox.Name = "ammoWeightTextBox";
+            this.ammoWeightTextBox.Size = new System.Drawing.Size(61, 20);
+            this.ammoWeightTextBox.TabIndex = 17;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 441);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Roberta";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -691,7 +672,6 @@ namespace Roberta
             this.ammoSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ammoSplitContainer)).EndInit();
             this.ammoSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ammoWeightNumericUpDown)).EndInit();
             this.ammoProjectileGroupBox.ResumeLayout(false);
             this.ammoProjectileGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -706,7 +686,6 @@ namespace Roberta
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firearmsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createFirearmToolStripMenuItem;
@@ -754,9 +733,9 @@ namespace Roberta
         private System.Windows.Forms.TextBox ammoManufacturerTextBox;
         private System.Windows.Forms.RadioButton ammoSlugRadioButton;
         private System.Windows.Forms.ListBox ammoListBox;
-        private System.Windows.Forms.NumericUpDown ammoWeightNumericUpDown;
         private System.Windows.Forms.Label ammoWeightGrammLabel;
         private System.Windows.Forms.DataGridView logDataGridView;
+        private System.Windows.Forms.TextBox ammoWeightTextBox;
     }
 }
 

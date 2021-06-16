@@ -1,7 +1,7 @@
 ﻿
 namespace Roberta
 {
-    partial class EditRecordForm
+    partial class AddRecordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -132,7 +132,7 @@ namespace Roberta
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // EditRecordForm
+            // AddRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,8 @@ namespace Roberta
             this.Controls.Add(this.firearmLabel);
             this.Controls.Add(this.dateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "EditRecordForm";
+            this.Name = "AddRecordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LOG Record";
             ((System.ComponentModel.ISupportInitialize)(this.roundsNumericUpDown)).EndInit();
             this.ResumeLayout(false);
