@@ -29,11 +29,6 @@ namespace Roberta
             firearmComboBox.DataSource = _firearmsRepo.GetAllFirearms();
             ammoComboBox.DataSource = _ammunitionRepo.GetAllAmmo();
 
-            if (recordGuid.HasValue)
-            {
-                // Edit
-            }
-
         }
 
         private void saveButton_Click(object sender, EventArgs e)

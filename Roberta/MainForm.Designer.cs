@@ -83,6 +83,7 @@ namespace Roberta
             this.ammoProjectileWeightLabel = new System.Windows.Forms.Label();
             this.ammoCaliberLabel = new System.Windows.Forms.Label();
             this.ammoManufacturerLabel = new System.Windows.Forms.Label();
+            this.firearmOwnedCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.logTabPage.SuspendLayout();
@@ -244,7 +245,7 @@ namespace Roberta
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tabControl
@@ -310,6 +311,7 @@ namespace Roberta
             // 
             // firearmsSplitContainer.Panel2
             // 
+            this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmOwnedCheckBox);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmCancelButton);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmSaveButton);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmSerialNumberTextBox);
@@ -650,6 +652,17 @@ namespace Roberta
             this.ammoManufacturerLabel.TabIndex = 0;
             this.ammoManufacturerLabel.Text = "Manufacturer:";
             // 
+            // firearmOwnedCheckBox
+            // 
+            this.firearmOwnedCheckBox.AutoSize = true;
+            this.firearmOwnedCheckBox.Location = new System.Drawing.Point(105, 143);
+            this.firearmOwnedCheckBox.Name = "firearmOwnedCheckBox";
+            this.firearmOwnedCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.firearmOwnedCheckBox.TabIndex = 7;
+            this.firearmOwnedCheckBox.Text = "Owned";
+            this.firearmOwnedCheckBox.UseVisualStyleBackColor = true;
+            this.firearmOwnedCheckBox.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +755,7 @@ namespace Roberta
         private System.Windows.Forms.ListBox ammoListBox;
         private System.Windows.Forms.DataGridView logDataGridView;
         private System.Windows.Forms.TextBox ammoWeightTextBox;
+        private System.Windows.Forms.CheckBox firearmOwnedCheckBox;
     }
 }
 

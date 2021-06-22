@@ -47,7 +47,8 @@ namespace Roberta.Repository
         {
             Firearm firearm = new Firearm
             {
-                Id = Guid.NewGuid()
+                Id = Guid.NewGuid(),
+                Owned = true
             };
 
             _firearms.Add(firearm.Id, firearm);

@@ -37,8 +37,6 @@ namespace Roberta
             LoadLogRecords(false);
         }
 
-
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -79,6 +77,7 @@ namespace Roberta
             firearmModelTextBox.Text = firearm.Model;
             firearmCaliberTextBox.Text = firearm.Caliber;
             firearmSerialNumberTextBox.Text = firearm.SerialNumber;
+            firearmOwnedCheckBox.Checked = firearm.Owned;
         }
 
         private void FillAmmoCard(Ammunition ammo)
@@ -103,6 +102,7 @@ namespace Roberta
             firearmSerialNumberTextBox.ReadOnly = !isOn;
             firearmSaveButton.Visible = isOn;
             firearmCancelButton.Visible = isOn;
+            firearmOwnedCheckBox.Visible = isOn;
         }
 
         private void AmmoSwitchEditMode(bool isOn)
@@ -124,14 +124,12 @@ namespace Roberta
         }
 
 
-
         private void firearmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             lastSelectedFirearmIndex = firearmsListBox.SelectedIndex;
             var firearm = (Firearm)firearmsListBox.SelectedItem;
             FillFirearmCard(firearm);
         }
-
 
 
         private void firearmSaveButton_Click(object sender, EventArgs e)
@@ -141,6 +139,7 @@ namespace Roberta
             firearm.Model = firearmModelTextBox.Text;
             firearm.Caliber = firearmCaliberTextBox.Text;
             firearm.SerialNumber = firearmSerialNumberTextBox.Text;
+            firearm.Owned = firearmOwnedCheckBox.Checked;
 
             _firearmsRepo.UpdateOrAdd(firearm);
             _firearmsRepo.Save();
