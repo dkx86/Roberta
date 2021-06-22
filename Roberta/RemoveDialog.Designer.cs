@@ -32,11 +32,12 @@ namespace Roberta
             this.dialogYesButton = new System.Windows.Forms.Button();
             this.dialogNoButton = new System.Windows.Forms.Button();
             this.dialogMessageLabel = new System.Windows.Forms.Label();
+            this.itemLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dialogYesButton
             // 
-            this.dialogYesButton.Location = new System.Drawing.Point(121, 122);
+            this.dialogYesButton.Location = new System.Drawing.Point(48, 126);
             this.dialogYesButton.Name = "dialogYesButton";
             this.dialogYesButton.Size = new System.Drawing.Size(75, 23);
             this.dialogYesButton.TabIndex = 0;
@@ -45,7 +46,7 @@ namespace Roberta
             // 
             // dialogNoButton
             // 
-            this.dialogNoButton.Location = new System.Drawing.Point(268, 122);
+            this.dialogNoButton.Location = new System.Drawing.Point(252, 126);
             this.dialogNoButton.Name = "dialogNoButton";
             this.dialogNoButton.Size = new System.Drawing.Size(75, 23);
             this.dialogNoButton.TabIndex = 1;
@@ -54,18 +55,32 @@ namespace Roberta
             // 
             // dialogMessageLabel
             // 
+            this.dialogMessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dialogMessageLabel.AutoSize = true;
-            this.dialogMessageLabel.Location = new System.Drawing.Point(191, 45);
+            this.dialogMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dialogMessageLabel.Location = new System.Drawing.Point(87, 9);
             this.dialogMessageLabel.Name = "dialogMessageLabel";
-            this.dialogMessageLabel.Size = new System.Drawing.Size(72, 13);
+            this.dialogMessageLabel.Size = new System.Drawing.Size(202, 20);
             this.dialogMessageLabel.TabIndex = 2;
-            this.dialogMessageLabel.Text = "Are you sure?";
+            this.dialogMessageLabel.Text = "Are you sure to delete this?";
+            // 
+            // itemLabel
+            // 
+            this.itemLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.itemLabel.Location = new System.Drawing.Point(1, 29);
+            this.itemLabel.Name = "itemLabel";
+            this.itemLabel.Size = new System.Drawing.Size(380, 94);
+            this.itemLabel.TabIndex = 3;
+            this.itemLabel.Text = "label1";
+            this.itemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RemoveDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 177);
+            this.ClientSize = new System.Drawing.Size(384, 161);
+            this.Controls.Add(this.itemLabel);
             this.Controls.Add(this.dialogMessageLabel);
             this.Controls.Add(this.dialogNoButton);
             this.Controls.Add(this.dialogYesButton);
@@ -83,5 +98,6 @@ namespace Roberta
         private System.Windows.Forms.Button dialogYesButton;
         private System.Windows.Forms.Button dialogNoButton;
         private System.Windows.Forms.Label dialogMessageLabel;
+        private System.Windows.Forms.Label itemLabel;
     }
 }

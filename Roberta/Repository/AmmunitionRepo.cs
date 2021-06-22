@@ -19,7 +19,8 @@ namespace Roberta.Repository
         public void Initialize()
         {
             var rawAmmo = ds.Load();
-            rawAmmo.ForEach(a => _ammunition.Add(a.Id, a));
+            rawAmmo.OrderBy(a => a.Caliber).ThenBy(a => a.ProjectileWeight).
+                ToList().ForEach(a => _ammunition.Add(a.Id, a));
         }
 
         public void ReloadFromDisk()

@@ -181,7 +181,7 @@ namespace Roberta
             var firearm = (Firearm)firearmsListBox.SelectedItem;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage("Delete " + firearm.ToString());
+            dialog.SetMessage(firearm.ToString());
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
@@ -248,7 +248,7 @@ namespace Roberta
             var ammo = (Ammunition)ammoListBox.SelectedItem;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage("Delete " + ammo.ToString());
+            dialog.SetMessage(ammo.ToString());
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
                 _ammunitionRepo.Delete(ammo.Id);
@@ -335,8 +335,6 @@ namespace Roberta
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
 
-            ammoWeightGrammLabel.Enabled = true;
-
             ammoBirdshotSizeLabel.Enabled = false;
             ammoBirdshotSizeTextBox.Enabled = false;
 
@@ -351,8 +349,7 @@ namespace Roberta
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            ammoWeightGrammLabel.Enabled = true;
-
+            
             ammoBirdshotSizeLabel.Enabled = true;
             ammoBirdshotSizeTextBox.Enabled = true;
 
@@ -367,8 +364,7 @@ namespace Roberta
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            ammoWeightGrammLabel.Enabled = true;
-
+            
             ammoBirdshotSizeLabel.Enabled = false;
             ammoBirdshotSizeTextBox.Enabled = false;
 
@@ -383,8 +379,7 @@ namespace Roberta
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            ammoWeightGrammLabel.Enabled = true;
-
+            
             ammoBirdshotSizeLabel.Enabled = false;
             ammoBirdshotSizeTextBox.Enabled = false;
 
@@ -421,7 +416,7 @@ namespace Roberta
             var record = row.DataBoundItem as LogRecord;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage("Delete LOG records at " + record.Date);
+            dialog.SetMessage("LOG record dated " + record.Date);
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
                 _recordsRepo.Delete(record.Id);

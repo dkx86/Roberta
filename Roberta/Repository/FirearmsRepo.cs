@@ -19,7 +19,8 @@ namespace Roberta.Repository
         public void Initialize()
         {
             var rawFirearms = ds.Load();
-            rawFirearms.ForEach(f => _firearms.Add(f.Id, f));
+            rawFirearms.OrderBy(f => f.Model).ThenBy(f => f.SerialNumber)
+                .ToList().ForEach(f => _firearms.Add(f.Id, f));
         }
 
         public void ReloadFromDisk()

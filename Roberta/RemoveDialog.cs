@@ -13,7 +13,8 @@ namespace Roberta
 
         public void SetMessage(string message)
         {
-            dialogMessageLabel.Text = message;
+            itemLabel.Text = message;
         }
+
     }
 }

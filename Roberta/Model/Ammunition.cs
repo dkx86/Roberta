@@ -28,12 +28,23 @@ namespace Roberta.Model
                 return result;
 
             result = Caliber;
+            
+            if (ProjectileWeight > 0f)
+                result += ", " + ProjectileWeight + "g";
+
+            result += ", " + ProjectileType;
+
+            if (!string.IsNullOrEmpty(BirdshotSize))
+                result += ", #" + BirdshotSize;
+
+            if (!string.IsNullOrEmpty(BuckshotSize))
+                result += ", #" + BuckshotSize;
+
+            if (!string.IsNullOrEmpty(BulletSlugName))
+                result += ", " + BulletSlugName;
 
             if (!string.IsNullOrEmpty(Manufacturer))
                 result += ", " + Manufacturer;
-
-            if (ProjectileWeight > 0f)
-                result += ", " + ProjectileWeight;
 
             return result;
         }

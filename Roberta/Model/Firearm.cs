@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Roberta.Model
 {
@@ -24,7 +20,7 @@ namespace Roberta.Model
             result = Model;
             
             if (!string.IsNullOrEmpty(SerialNumber))
-                result += " (" + SerialNumber + ")";
+                result += " - s/n:" + SerialNumber;
 
             return result;
         }
