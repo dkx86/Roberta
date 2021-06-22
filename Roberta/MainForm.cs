@@ -148,8 +148,28 @@ namespace Roberta
             FirearmsSwitchEditMode(false);
 
             LoadFirearms();
+
+            UpdateLogRecords(firearm, null);
         }
 
+        private void UpdateLogRecords(Firearm firearm, Ammunition ammo)
+        {
+            var records = _recordsRepo.GetAll();
+            foreach (var record in records)
+            {
+                if (firearm != null && record.Firearm.Id.Equals(firearm.Id))
+                {
+                    record.Firearm = firearm;
+                }
+
+                if (ammo != null && record.Ammunition.Id.Equals(ammo.Id))
+                {
+                    record.Ammunition = ammo;
+                }
+            }
+            _recordsRepo.Save();
+            LoadLogRecords(false);
+        }
 
         private void firearmCancelButton_Click(object sender, EventArgs e)
         {
@@ -276,6 +296,7 @@ namespace Roberta
 
             AmmoSwitchEditMode(false);
             LoadAmmunition();
+            UpdateLogRecords(null, ammo);
         }
 
         private Projectile GetAmmoSelectedProjectileType()

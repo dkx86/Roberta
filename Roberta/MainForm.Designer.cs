@@ -126,7 +126,7 @@ namespace Roberta
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -256,7 +256,7 @@ namespace Roberta
             this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(784, 417);
+            this.tabControl.Size = new System.Drawing.Size(784, 537);
             this.tabControl.TabIndex = 1;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -266,7 +266,7 @@ namespace Roberta
             this.logTabPage.Location = new System.Drawing.Point(4, 22);
             this.logTabPage.Name = "logTabPage";
             this.logTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.logTabPage.Size = new System.Drawing.Size(776, 391);
+            this.logTabPage.Size = new System.Drawing.Size(776, 511);
             this.logTabPage.TabIndex = 0;
             this.logTabPage.Text = "LOG";
             this.logTabPage.UseVisualStyleBackColor = true;
@@ -284,7 +284,7 @@ namespace Roberta
             this.logDataGridView.Name = "logDataGridView";
             this.logDataGridView.ReadOnly = true;
             this.logDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.logDataGridView.Size = new System.Drawing.Size(770, 385);
+            this.logDataGridView.Size = new System.Drawing.Size(770, 505);
             this.logDataGridView.TabIndex = 0;
             // 
             // firearmsTabPage
@@ -293,7 +293,7 @@ namespace Roberta
             this.firearmsTabPage.Location = new System.Drawing.Point(4, 22);
             this.firearmsTabPage.Name = "firearmsTabPage";
             this.firearmsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.firearmsTabPage.Size = new System.Drawing.Size(776, 391);
+            this.firearmsTabPage.Size = new System.Drawing.Size(776, 511);
             this.firearmsTabPage.TabIndex = 1;
             this.firearmsTabPage.Text = "Firearms";
             this.firearmsTabPage.UseVisualStyleBackColor = true;
@@ -320,7 +320,7 @@ namespace Roberta
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmCaliberLabel);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmManufacturerLabel);
             this.firearmsSplitContainer.Panel2.Controls.Add(this.firearmModelLabel);
-            this.firearmsSplitContainer.Size = new System.Drawing.Size(770, 385);
+            this.firearmsSplitContainer.Size = new System.Drawing.Size(770, 505);
             this.firearmsSplitContainer.SplitterDistance = 256;
             this.firearmsSplitContainer.TabIndex = 0;
             // 
@@ -332,7 +332,7 @@ namespace Roberta
             this.firearmsListBox.ItemHeight = 16;
             this.firearmsListBox.Location = new System.Drawing.Point(0, 0);
             this.firearmsListBox.Name = "firearmsListBox";
-            this.firearmsListBox.Size = new System.Drawing.Size(256, 385);
+            this.firearmsListBox.Size = new System.Drawing.Size(256, 505);
             this.firearmsListBox.TabIndex = 0;
             this.firearmsListBox.SelectedIndexChanged += new System.EventHandler(this.firearmsListBox_SelectedIndexChanged);
             // 
@@ -425,7 +425,7 @@ namespace Roberta
             this.ammoTabPage.Controls.Add(this.ammoSplitContainer);
             this.ammoTabPage.Location = new System.Drawing.Point(4, 22);
             this.ammoTabPage.Name = "ammoTabPage";
-            this.ammoTabPage.Size = new System.Drawing.Size(776, 391);
+            this.ammoTabPage.Size = new System.Drawing.Size(776, 511);
             this.ammoTabPage.TabIndex = 2;
             this.ammoTabPage.Text = "Ammunition";
             this.ammoTabPage.UseVisualStyleBackColor = true;
@@ -457,7 +457,7 @@ namespace Roberta
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoProjectileWeightLabel);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoCaliberLabel);
             this.ammoSplitContainer.Panel2.Controls.Add(this.ammoManufacturerLabel);
-            this.ammoSplitContainer.Size = new System.Drawing.Size(776, 391);
+            this.ammoSplitContainer.Size = new System.Drawing.Size(776, 511);
             this.ammoSplitContainer.SplitterDistance = 258;
             this.ammoSplitContainer.TabIndex = 0;
             // 
@@ -469,7 +469,7 @@ namespace Roberta
             this.ammoListBox.ItemHeight = 16;
             this.ammoListBox.Location = new System.Drawing.Point(0, 0);
             this.ammoListBox.Name = "ammoListBox";
-            this.ammoListBox.Size = new System.Drawing.Size(258, 391);
+            this.ammoListBox.Size = new System.Drawing.Size(258, 511);
             this.ammoListBox.TabIndex = 0;
             this.ammoListBox.SelectedIndexChanged += new System.EventHandler(this.ammoListBox_SelectedIndexChanged);
             // 
@@ -654,7 +654,7 @@ namespace Roberta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 441);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
