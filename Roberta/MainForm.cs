@@ -55,18 +55,22 @@ namespace Roberta
             var firearms = _firearmsRepo.GetAllFirearms();
             firearmsListBox.Items.Clear();
             firearms.ForEach(f => firearmsListBox.Items.Add(f));
-            if (firearmsListBox.Items.Count > 0)
+            if (firearmsListBox.Items.Count > 0 && lastSelectedFirearmIndex < firearmsListBox.Items.Count)
                 firearmsListBox.SetSelected(lastSelectedFirearmIndex, true);
 
+            firearmsListBox.Refresh();
         }
 
         private void LoadAmmunition()
         {
             var ammo = _ammunitionRepo.GetAllAmmo();
             ammoListBox.Items.Clear();
+            
             ammo.ForEach(a => ammoListBox.Items.Add(a));
-            if (ammoListBox.Items.Count > 0)
+            if (ammoListBox.Items.Count > 0 && lastSelectedAmmoIndex < ammoListBox.Items.Count)
                 ammoListBox.SetSelected(lastSelectedAmmoIndex, true);
+
+            ammoListBox.Refresh();
         }
 
         private void FillFirearmCard(Firearm firearm)
@@ -150,6 +154,7 @@ namespace Roberta
         private void firearmCancelButton_Click(object sender, EventArgs e)
         {
             FirearmsSwitchEditMode(false);
+            _firearmsRepo.ReloadFromDisk();
             LoadFirearms();
         }
 
@@ -321,6 +326,7 @@ namespace Roberta
         private void ammoCancelButton_Click(object sender, EventArgs e)
         {
             AmmoSwitchEditMode(false);
+            _ammunitionRepo.ReloadFromDisk();
             LoadAmmunition();
         }
 

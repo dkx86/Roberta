@@ -22,6 +22,11 @@ namespace Roberta.Repository
             rawAmmo.ForEach(a => _ammunition.Add(a.Id, a));
         }
 
+        public void ReloadFromDisk()
+        {
+            _ammunition.Clear();
+            Initialize();
+        }
         public Ammunition GetAmmo(Guid id)
         {
             try

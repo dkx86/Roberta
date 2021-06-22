@@ -22,6 +22,12 @@ namespace Roberta.Repository
             rawFirearms.ForEach(f => _firearms.Add(f.Id, f));
         }
 
+        public void ReloadFromDisk()
+        {
+            _firearms.Clear();
+            Initialize();
+        }
+
         public Firearm GetFirearm(Guid id)
         {
             try

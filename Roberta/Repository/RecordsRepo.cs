@@ -28,7 +28,7 @@ namespace Roberta.Repository
             Initialize();
         }
 
-        public LogRecord GetFirearm(Guid id)
+        public LogRecord GetRecord(Guid id)
         {
             try
             {
