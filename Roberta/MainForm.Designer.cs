@@ -43,7 +43,7 @@ namespace Roberta
             this.createAmmoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editAmmoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAmmoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.logTabPage = new System.Windows.Forms.TabPage();
@@ -51,6 +51,7 @@ namespace Roberta
             this.firearmsTabPage = new System.Windows.Forms.TabPage();
             this.firearmsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.firearmsListBox = new System.Windows.Forms.ListBox();
+            this.firearmOwnedCheckBox = new System.Windows.Forms.CheckBox();
             this.firearmCancelButton = new System.Windows.Forms.Button();
             this.firearmSaveButton = new System.Windows.Forms.Button();
             this.firearmSerialNumberTextBox = new System.Windows.Forms.TextBox();
@@ -83,7 +84,6 @@ namespace Roberta
             this.ammoProjectileWeightLabel = new System.Windows.Forms.Label();
             this.ammoCaliberLabel = new System.Windows.Forms.Label();
             this.ammoManufacturerLabel = new System.Windows.Forms.Label();
-            this.firearmOwnedCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.logTabPage.SuspendLayout();
@@ -108,7 +108,7 @@ namespace Roberta
             this.lOGToolStripMenuItem,
             this.firearmsToolStripMenuItem,
             this.ammunitionToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.aboutStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(784, 24);
@@ -234,19 +234,20 @@ namespace Roberta
             this.removeAmmoToolStripMenuItem.Text = "Remove";
             this.removeAmmoToolStripMenuItem.Click += new System.EventHandler(this.removeAmmoToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // aboutStripMenuItem
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-            this.toolStripMenuItem1.Text = "?";
+            this.aboutStripMenuItem.Name = "aboutStripMenuItem";
+            this.aboutStripMenuItem.Size = new System.Drawing.Size(24, 20);
+            this.aboutStripMenuItem.Text = "?";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tabControl
             // 
@@ -337,6 +338,17 @@ namespace Roberta
             this.firearmsListBox.Size = new System.Drawing.Size(256, 505);
             this.firearmsListBox.TabIndex = 0;
             this.firearmsListBox.SelectedIndexChanged += new System.EventHandler(this.firearmsListBox_SelectedIndexChanged);
+            // 
+            // firearmOwnedCheckBox
+            // 
+            this.firearmOwnedCheckBox.AutoSize = true;
+            this.firearmOwnedCheckBox.Location = new System.Drawing.Point(105, 143);
+            this.firearmOwnedCheckBox.Name = "firearmOwnedCheckBox";
+            this.firearmOwnedCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.firearmOwnedCheckBox.TabIndex = 7;
+            this.firearmOwnedCheckBox.Text = "Owned";
+            this.firearmOwnedCheckBox.UseVisualStyleBackColor = true;
+            this.firearmOwnedCheckBox.Visible = false;
             // 
             // firearmCancelButton
             // 
@@ -652,17 +664,6 @@ namespace Roberta
             this.ammoManufacturerLabel.TabIndex = 0;
             this.ammoManufacturerLabel.Text = "Manufacturer:";
             // 
-            // firearmOwnedCheckBox
-            // 
-            this.firearmOwnedCheckBox.AutoSize = true;
-            this.firearmOwnedCheckBox.Location = new System.Drawing.Point(105, 143);
-            this.firearmOwnedCheckBox.Name = "firearmOwnedCheckBox";
-            this.firearmOwnedCheckBox.Size = new System.Drawing.Size(60, 17);
-            this.firearmOwnedCheckBox.TabIndex = 7;
-            this.firearmOwnedCheckBox.Text = "Owned";
-            this.firearmOwnedCheckBox.UseVisualStyleBackColor = true;
-            this.firearmOwnedCheckBox.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,7 +716,7 @@ namespace Roberta
         private System.Windows.Forms.ToolStripMenuItem createAmmoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editAmmoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeAmmoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutStripMenuItem;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage logTabPage;
         private System.Windows.Forms.TabPage firearmsTabPage;

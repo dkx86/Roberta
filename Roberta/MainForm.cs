@@ -456,5 +456,11 @@ namespace Roberta
             logDataGridView.Columns["Id"].Visible = false;
             logDataGridView.Refresh();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm about = new AboutForm();
+            about.ShowDialog(this);
+        }
     }
 }
