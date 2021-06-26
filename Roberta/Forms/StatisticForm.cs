@@ -47,12 +47,14 @@ namespace Roberta.Forms
             var toDate = toDateTimePicker.Value;
 
             var selectedFirearm = firearmsComboBox.SelectedItem as Firearm;
+            if (selectedFirearm == null)
+                return;
 
-            List<LogRecord> records =  _recordsRepo.GetStats(selectedFirearm.Id, fromDate, toDate);
-            
+            List<LogRecord> records = _recordsRepo.GetStats(selectedFirearm.Id, fromDate, toDate);
+
             int totalRounds = 0;
             Dictionary<Ammunition, int> roundsPerAmmo = new Dictionary<Ammunition, int>();
-            foreach(var record in records)
+            foreach (var record in records)
             {
                 totalRounds += record.Rounds;
                 int rounds = 0;
@@ -65,8 +67,8 @@ namespace Roberta.Forms
                     roundsPerAmmo.Add(record.Ammunition, record.Rounds);
                 }
             }
-            
-            
+
+
             totalRoundsValueLabel.Text = totalRounds.ToString();
             roundsChart.Titles.Add(selectedFirearm.ToString());
             FillChartSeries(roundsPerAmmo);
@@ -80,8 +82,8 @@ namespace Roberta.Forms
 
         private void FillChartSeries(Dictionary<Ammunition, int> roundsPerAmmo)
         {
-            
-            
+
+
             foreach (KeyValuePair<Ammunition, int> entry in roundsPerAmmo)
             {
                 Series series = roundsChart.Series.Add(entry.Key.ToString());

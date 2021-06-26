@@ -29,9 +29,10 @@ namespace Roberta.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticForm));
             this.label1 = new System.Windows.Forms.Label();
             this.firearmsComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -100,16 +101,16 @@ namespace Roberta.Forms
             this.roundsChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.roundsChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.roundsChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.roundsChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.roundsChart.Legends.Add(legend2);
             this.roundsChart.Location = new System.Drawing.Point(15, 117);
             this.roundsChart.Name = "roundsChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.roundsChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.roundsChart.Series.Add(series2);
             this.roundsChart.Size = new System.Drawing.Size(757, 432);
             this.roundsChart.TabIndex = 6;
             // 
@@ -157,6 +158,7 @@ namespace Roberta.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.firearmsComboBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 320);
             this.Name = "StatisticForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
