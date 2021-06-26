@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Roberta
+namespace Roberta.Forms
 {
     public partial class MainForm : Form
     {
@@ -285,7 +285,7 @@ namespace Roberta
             ammo.Manufacturer = ammoManufacturerTextBox.Text;
             ammo.Caliber = ammoCaliberTextBox.Text;
             ammo.ProjectileType = GetAmmoSelectedProjectileType();
-            ammo.ProjectileWeight = float.Parse(ammoWeightTextBox.Text);
+            ammo.ProjectileWeight = float.Parse(ammoWeightTextBox.Text.Replace(".",",").Trim());
             ammo.BirdshotSize = ammoBirdshotSizeTextBox.Text;
             ammo.BuckshotSize = ammoBuckshotSizeTextBox.Text;
             ammo.BulletSlugName = ammoBulletSlugNameTextBox.Text;
@@ -461,6 +461,12 @@ namespace Roberta
         {
             AboutForm about = new AboutForm();
             about.ShowDialog(this);
+        }
+
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StatisticForm about = new StatisticForm();
+            about.Show(this);
         }
     }
 }

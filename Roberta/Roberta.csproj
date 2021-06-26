@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7CFD1B04-14C0-4412-A6C2-09A6D6764BDF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Roberta</RootNamespace>
+    <RootNamespace>Roberta.Forms</RootNamespace>
     <AssemblyName>Roberta</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,24 +65,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutForm.cs">
+    <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutForm.Designer.cs">
+    <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataStorage.cs" />
-    <Compile Include="AddRecordForm.cs">
+    <Compile Include="Forms\AddRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRecordForm.Designer.cs">
+    <Compile Include="Forms\AddRecordForm.Designer.cs">
       <DependentUpon>AddRecordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Ammunition.cs" />
     <Compile Include="Model\Firearm.cs" />
@@ -89,23 +96,26 @@
     <Compile Include="Model\Projectile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveDialog.cs">
+    <Compile Include="Forms\RemoveDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemoveDialog.Designer.cs">
+    <Compile Include="Forms\RemoveDialog.Designer.cs">
       <DependentUpon>RemoveDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\AmmunitionRepo.cs" />
     <Compile Include="Repository\RecordsRepo.cs" />
     <Compile Include="Repository\FirearmsRepo.cs" />
-    <EmbeddedResource Include="AboutForm.resx">
+    <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddRecordForm.resx">
+    <EmbeddedResource Include="Forms\AddRecordForm.resx">
       <DependentUpon>AddRecordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,8 +125,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RemoveDialog.resx">
+    <EmbeddedResource Include="Forms\RemoveDialog.resx">
       <DependentUpon>RemoveDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

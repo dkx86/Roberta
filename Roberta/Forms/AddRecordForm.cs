@@ -3,7 +3,7 @@ using Roberta.Repository;
 using System;
 using System.Windows.Forms;
 
-namespace Roberta
+namespace Roberta.Forms
 {
     public partial class AddRecordForm : Form
     {

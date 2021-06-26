@@ -62,6 +62,14 @@ namespace Roberta.Repository
                 _records.Add(updated.Id, updated);
         }
 
+        internal List<LogRecord> GetStats(Guid id, DateTime fromDate, DateTime toDate)
+        {
+            var records = GetAll();
+            return records.Where(r => r.Firearm.Id.Equals(id))
+                .Where(r => r.Date >= fromDate && r.Date <= toDate)
+                .OrderBy(r => r.Date).ToList();
+        }
+
         public void Delete(Guid id)
         {
             _records.Remove(id);

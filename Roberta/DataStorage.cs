@@ -36,7 +36,7 @@ namespace Roberta
                 {
                     return (List<T>)_xmlSerializer.Deserialize(fs);
                 }
-            }catch (InvalidOperationException e)
+            }catch (Exception)
             {
                 return new List<T>();
             }

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Roberta
+namespace Roberta.Forms
 {
     public partial class AboutForm : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Roberta
+namespace Roberta.Forms
 {
     partial class RemoveDialog
     {

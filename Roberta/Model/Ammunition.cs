@@ -28,7 +28,7 @@ namespace Roberta.Model
                 return result;
 
             result = Caliber;
-            
+
             if (ProjectileWeight > 0f)
                 result += ", " + ProjectileWeight + "g";
 
@@ -47,6 +47,22 @@ namespace Roberta.Model
                 result += ", " + Manufacturer;
 
             return result;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return Id.Equals(((Ammunition)obj).Id);
+        }
+
+        // override object.GetHashCode
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
         }
     }
 }
