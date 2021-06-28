@@ -43,7 +43,7 @@ namespace Roberta.Forms
             this.appNameLabel.Name = "appNameLabel";
             this.appNameLabel.Size = new System.Drawing.Size(382, 30);
             this.appNameLabel.TabIndex = 0;
-            this.appNameLabel.Text = "Roberta v1.0";
+            this.appNameLabel.Text = "Roberta v1.1";
             this.appNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // authorLabel

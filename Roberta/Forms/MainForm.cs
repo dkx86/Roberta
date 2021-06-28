@@ -63,7 +63,7 @@ namespace Roberta.Forms
         {
             var ammo = _ammunitionRepo.GetAllAmmo();
             ammoListBox.Items.Clear();
-            
+
             ammo.ForEach(a => ammoListBox.Items.Add(a));
             if (ammoListBox.Items.Count > 0 && lastSelectedAmmoIndex < ammoListBox.Items.Count)
                 ammoListBox.SetSelected(lastSelectedAmmoIndex, true);
@@ -200,7 +200,7 @@ namespace Roberta.Forms
             var firearm = (Firearm)firearmsListBox.SelectedItem;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage(firearm.ToString());
+            dialog.SetMessage("Firearm: " + firearm.ToString());
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
@@ -267,7 +267,7 @@ namespace Roberta.Forms
             var ammo = (Ammunition)ammoListBox.SelectedItem;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage(ammo.ToString());
+            dialog.SetMessage("Ammunition: " + ammo.ToString());
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
                 _ammunitionRepo.Delete(ammo.Id);
@@ -285,7 +285,16 @@ namespace Roberta.Forms
             ammo.Manufacturer = ammoManufacturerTextBox.Text;
             ammo.Caliber = ammoCaliberTextBox.Text;
             ammo.ProjectileType = GetAmmoSelectedProjectileType();
-            ammo.ProjectileWeight = float.Parse(ammoWeightTextBox.Text.Replace(".",",").Trim());
+            var weight = ammoWeightTextBox.Text;
+            try
+            {
+                ammo.ProjectileWeight = float.Parse(weight.Replace(".", ",").Trim());
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message + ": " + weight, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ammo.BirdshotSize = ammoBirdshotSizeTextBox.Text;
             ammo.BuckshotSize = ammoBuckshotSizeTextBox.Text;
             ammo.BulletSlugName = ammoBulletSlugNameTextBox.Text;
@@ -369,7 +378,7 @@ namespace Roberta.Forms
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            
+
             ammoBirdshotSizeLabel.Enabled = true;
             ammoBirdshotSizeTextBox.Enabled = true;
 
@@ -384,7 +393,7 @@ namespace Roberta.Forms
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            
+
             ammoBirdshotSizeLabel.Enabled = false;
             ammoBirdshotSizeTextBox.Enabled = false;
 
@@ -399,7 +408,7 @@ namespace Roberta.Forms
         {
             ammoProjectileWeightLabel.Enabled = true;
             ammoWeightTextBox.Enabled = true;
-            
+
             ammoBirdshotSizeLabel.Enabled = false;
             ammoBirdshotSizeTextBox.Enabled = false;
 
@@ -421,10 +430,12 @@ namespace Roberta.Forms
 
         private void addRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             AddRecordForm dialog = new AddRecordForm(null);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 LoadLogRecords(true);
+                tabControl.SelectTab(0);
             }
 
             dialog.Dispose();
@@ -436,7 +447,7 @@ namespace Roberta.Forms
             var record = row.DataBoundItem as LogRecord;
 
             RemoveDialog dialog = new RemoveDialog();
-            dialog.SetMessage("LOG record dated " + record.Date);
+            dialog.SetMessage("Log record at " + record.Date);
             if (dialog.ShowDialog(this) == DialogResult.Yes)
             {
                 _recordsRepo.Delete(record.Id);
